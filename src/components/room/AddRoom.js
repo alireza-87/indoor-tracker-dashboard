@@ -23,7 +23,7 @@ class AddRoom extends Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmite} className="white">
+                <form onSubmit={this.handleSubmite} className="white z-depth-2">
                     <h5 className="grey-text grey-darken4">Add Room</h5>
                     <div className="input-field">
                         <label htmlFor="name"> Name </label>

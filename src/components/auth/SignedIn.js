@@ -20,7 +20,7 @@ class SignedIn extends Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmite} className="white">
+                <form onSubmit={this.handleSubmite} className="white z-depth-2">
                     <h5 className="grey-text grey-darken4">Sign In</h5>
                     <div className="input-field">
                         <label htmlFor="email"> Email </label>
@@ -31,7 +31,7 @@ class SignedIn extends Component {
                         <input type="password" id='password' onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">
+                        <button className="btn orange accent-4 z-depth-1">
                             Login
                         </button>
                     </div>
