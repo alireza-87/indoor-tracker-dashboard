@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {createRoom} from '../../store/actions/roomActions'
+import {connect} from 'react-redux'
 
 class AddRoom extends Component {
     state={
@@ -17,7 +19,7 @@ class AddRoom extends Component {
 
     handleSubmite=(e)=>{
         e.preventDefault();
-        console.log(this.state)
+        this.props.createRoom(this.state)
     }
 
     render() {
@@ -58,4 +60,12 @@ class AddRoom extends Component {
     }
 }
 
-export default AddRoom
+const mapDispatchToProps=(dispatch) =>{
+    return(
+        {
+            createRoom : (room) => dispatch(createRoom(room)) 
+        }
+    )
+}
+
+export default connect(null,mapDispatchToProps)(AddRoom)

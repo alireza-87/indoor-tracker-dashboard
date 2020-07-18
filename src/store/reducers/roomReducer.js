@@ -7,6 +7,15 @@ const initState={
     ]
 }
 const roomReducer = (state = initState , action) =>{
+    switch(action.type){
+        case 'CREATE_ROOM':
+            console.log('create room : ',action.room)
+            break
+        default :
+            console.log('%%%%')
+            break
+
+    }
     return state
 }
 
