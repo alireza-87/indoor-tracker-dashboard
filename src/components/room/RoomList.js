@@ -1,13 +1,14 @@
 import React from 'react'
 import RoomSummery from './RoomSummery'
 
-const RoomList = () => {
+const RoomList = ({rooms}) => {
     return(
         <div className="room-List section">
-            <RoomSummery/>
-            <RoomSummery/>
-            <RoomSummery/>
-            <RoomSummery/>
+            {
+                rooms && rooms.map(room => {
+                    return(<RoomSummery room={room} key={room.id} />)
+                })
+            }
         </div>
     )
 }

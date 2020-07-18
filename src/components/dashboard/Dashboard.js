@@ -1,12 +1,15 @@
 import React,{ Component } from 'react'
 import RoomList from '../room/RoomList'
+import {connect} from 'react-redux'
+
 class Dashboard extends Component{
     render(){
+        const { rooms }=this.props
         return(
             <div className="dashboard container">
                 <div className="row">
-                    <div className="col s12 m6 l4">
-                        <RoomList/>
+                    <div className="col">
+                        <RoomList rooms={rooms}/>
                     </div>
                 </div>
             </div>
@@ -14,4 +17,12 @@ class Dashboard extends Component{
     }
 }
 
-export default Dashboard
+const mapStateToProps = (state) =>{
+    return(
+        {
+            rooms:state.room.room
+        }
+    )
+}
+
+export default connect(mapStateToProps)(Dashboard)
