@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard'
 import RoomDetail from './components/room/RoomDetail'
 import SignedIn from '../src/components/auth/SignedIn'
 import Signedup from '../src/components/auth/Signedup'
+import AddRoom from './components/room/AddRoom'
 function App() {
   return (
     <BrowserRouter>
@@ -15,7 +16,7 @@ function App() {
           <Route path='/room/:floor/:room' component={RoomDetail}/>
           <Route path='/signin' component={SignedIn}/>
           <Route path='/signup' component={Signedup}/>
-
+          <Route path='/addroom' component={AddRoom}/>
         </Switch>
       </div>
     </BrowserRouter>
