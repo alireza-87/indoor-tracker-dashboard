@@ -1,18 +1,23 @@
 import MQTT from 'mqtt';
-import {roomList,addRoom} from './actions/mqttActions'
+import {roomList,result} from './actions/mqttActions'
 
 export const middleware = config => ({ dispatch }) => { 
   
   const client = MQTT.connect(config);
       client.on('connect', function () {
         console.log('connected ..... ')
-        client.subscribe('testtopic/aliceinwonder')
+        client.subscribe('dashboard/#')
     })
 
   client.on('message', ((topic, message) => {
+    console.log(message)
     const msgObj = JSON.parse(message);
-    if (topic === 'testtopic/aliceinwonder') {
+    if (topic === 'dashboard/data/roomList') {
       dispatch(roomList(msgObj));
+    }else if (topic === 'dashboard/result/success') {
+      dispatch(result(msgObj))
+    }else if (topic === 'dashboard/result/fail') {
+      dispatch(result(msgObj))
     }
   }));
 
@@ -20,7 +25,7 @@ export const middleware = config => ({ dispatch }) => {
     console.log('nextaction',JSON.stringify(action.payload));
     switch(action.type){
       case 'ADD_ROOM':
-        client.publish('dashboard/command',JSON.stringify(action.payload))
+        client.publish('command/c/s',JSON.stringify(action.payload))
           break
           default:
             break

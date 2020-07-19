@@ -1,5 +1,13 @@
 export const ROOM_LIST = '/App/ROOM_LIST';
 
+export const result = (data) => {
+  return{
+    type:'RESULT',
+    payload:data
+  };
+
+}
+
 export const roomList = roomParams => ({
   type: ROOM_LIST,
   rooms: {

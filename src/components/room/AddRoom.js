@@ -25,6 +25,7 @@ class AddRoom extends Component {
     }
 
     render() {
+        const { result }=this.props
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
@@ -61,7 +62,7 @@ class AddRoom extends Component {
         )
     }
 }
-
+//dispatcher mapper
 const mapDispatchToProps=(dispatch) =>{
     return(
         {
@@ -69,5 +70,13 @@ const mapDispatchToProps=(dispatch) =>{
         }
     )
 }
+// state mapper
+const mapStateToProps = (state) =>{
+    return(
+        {
+            result:state.mqtt.result
+        }
+    )
+}
 
-export default connect(null,mapDispatchToProps)(AddRoom)
+export default connect(mapStateToProps,mapDispatchToProps)(AddRoom)
