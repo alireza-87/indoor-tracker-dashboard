@@ -11,7 +11,7 @@ export const result = (data) => {
 export const roomList = roomParams => ({
   type: ROOM_LIST,
   rooms: {
-    rooms: roomParams.rooms
+    rooms: roomParams.result
   },
 });
 
@@ -21,6 +21,14 @@ export const addRoom = (data) => {
     payload:data
   };
 };
+
+export const getRoomList = (data) => {
+  return{
+    type:'GET_ROOM_LIST',
+    payload:data
+  };
+};
+
 
 // export const addRoom = roomParams => ({
 //   type: ADD_ROOM,

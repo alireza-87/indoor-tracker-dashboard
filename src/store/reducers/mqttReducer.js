@@ -13,6 +13,11 @@ const devices = (state = {}, action) => {
       return {
         ...action.rooms,
       };
+    case 'GET_ROOM_LIST':
+      return {
+        ...action.rooms,
+      };
+    
     case 'RESULT':
       return{
         ...action.payload,

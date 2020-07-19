@@ -10,9 +10,10 @@ export const middleware = config => ({ dispatch }) => {
     })
 
   client.on('message', ((topic, message) => {
-    console.log(message)
+    console.log(topic)
     const msgObj = JSON.parse(message);
     if (topic === 'dashboard/'+clientId+'/data/roomList') {
+      console.log('get room list')
       dispatch(roomList(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/result/success') {
       dispatch(result(msgObj))
@@ -27,6 +28,10 @@ export const middleware = config => ({ dispatch }) => {
       case 'ADD_ROOM':
         client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
           break
+        case 'GET_ROOM_LIST':
+          client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
+            break
+          
           default:
             break
     }

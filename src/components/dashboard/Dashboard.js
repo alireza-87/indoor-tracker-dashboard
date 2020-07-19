@@ -1,10 +1,17 @@
-import React,{ Component } from 'react'
+import React,{ Component,useEffect } from 'react'
 import RoomList from '../room/RoomList'
 import {connect} from 'react-redux'
-
+import {getRoomList} from '../../store/actions/mqttActions'
 class Dashboard extends Component{
+    state={
+        type:'getRoomList'
+        }
+        componentDidMount() {
+            this.props.getRoomList(this.state)
+          }
+        
+    render(){    
 
-    render(){
         const { rooms }=this.props
         return(
             <div className="dashboard container">
@@ -17,6 +24,14 @@ class Dashboard extends Component{
         )
     }
 }
+//dispatcher mapper
+const mapDispatchToProps=(dispatch) =>{
+    return(
+        {
+            getRoomList : (room) => dispatch(getRoomList(room)) 
+        }
+    )
+}
 
 const mapStateToProps = (state) =>{
     return(
@@ -26,4 +41,4 @@ const mapStateToProps = (state) =>{
     )
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)
