@@ -18,9 +18,10 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) =>{
+    console.log("STATE ::: ",state.mqtt.rooms)
     return(
         {
-            rooms:state.room.room
+            rooms:state.mqtt.rooms
         }
     )
 }

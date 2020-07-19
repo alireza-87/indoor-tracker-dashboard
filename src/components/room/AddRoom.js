@@ -41,16 +41,16 @@ class AddRoom extends Component {
                     </div>
                     <div className="input-field">
                         <label htmlFor="capacity"> Capacity </label>
-                        <input type="text" id='capacity' onChange={this.handleChange}/>
+                        <input type="number" id='capacity' onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="sensorid"> Sensor Id </label>
-                        <input type="number" id='sensorid' onChange={this.handleChange}/>
+                        <input type="text" id='sensorid' onChange={this.handleChange}/>
                     </div>
 
 
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">
+                        <button className="btn orange accent-4 z-depth-1">
                             Login
                         </button>
                     </div>

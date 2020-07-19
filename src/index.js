@@ -7,8 +7,9 @@ import { createStore,applyMiddleware } from 'redux'
 import rootReducer from '../src/store/reducers/rootReducer'
 import { Provider} from 'react-redux'
 import thunk from 'redux-thunk'
+import {middleware} from './store/mqttMiddleware'
 
-const store = createStore(rootReducer,applyMiddleware(thunk))
+const store = createStore(rootReducer,applyMiddleware(thunk,middleware('ws://broker.mqttdashboard.com:8000/mqtt')))
 
 ReactDOM.render(
   <Provider store={store}>
