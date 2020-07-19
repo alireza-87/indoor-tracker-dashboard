@@ -7,6 +7,10 @@ const devices = (state = {}, action) => {
       return {
         ...action.rooms,
       };
+    case 'ADD_ROOM':
+      return {
+        ...action.rooms,
+      };
     default:
       return state;
   }

@@ -3,6 +3,7 @@ import RoomList from '../room/RoomList'
 import {connect} from 'react-redux'
 
 class Dashboard extends Component{
+
     render(){
         const { rooms }=this.props
         return(
@@ -18,7 +19,6 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) =>{
-    console.log("STATE ::: ",state.mqtt.rooms)
     return(
         {
             rooms:state.mqtt.rooms

@@ -1,10 +1,8 @@
 import MQTT from 'mqtt';
-import {roomList} from './actions/mqttActions'
-let mqttclient;
+import {roomList,addRoom} from './actions/mqttActions'
 
-export const middleware = config => ({ dispatch }) => {
-  let topic;
-
+export const middleware = config => ({ dispatch }) => { 
+  
   const client = MQTT.connect(config);
       client.on('connect', function () {
         console.log('connected ..... ')
@@ -17,8 +15,17 @@ export const middleware = config => ({ dispatch }) => {
       dispatch(roomList(msgObj));
     }
   }));
+
   return next => (action) => {
-    console.log('nextaction', action);
+    console.log('nextaction',JSON.stringify(action.payload));
+    switch(action.type){
+      case 'ADD_ROOM':
+        client.publish('dashboard/command',JSON.stringify(action.payload))
+          break
+          default:
+            break
+    }
+    //client.publish('testtopic/aliceinwonder','This is a test message')
     next(action)
   };
 };

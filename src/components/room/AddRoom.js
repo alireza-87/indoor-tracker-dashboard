@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {createRoom} from '../../store/actions/roomActions'
 import {connect} from 'react-redux'
+import {addRoom} from '../../store/actions/mqttActions'
 
 class AddRoom extends Component {
     state={
+        type:'addRoom',
         name:'',
         floor:'',
         room:'',
@@ -63,7 +65,7 @@ class AddRoom extends Component {
 const mapDispatchToProps=(dispatch) =>{
     return(
         {
-            createRoom : (room) => dispatch(createRoom(room)) 
+            createRoom : (room) => dispatch(addRoom(room)) 
         }
     )
 }

@@ -9,8 +9,8 @@ import { Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {middleware} from './store/mqttMiddleware'
 
-const store = createStore(rootReducer,applyMiddleware(thunk,middleware('ws://broker.mqttdashboard.com:8000/mqtt')))
-
+const store = createStore(rootReducer,applyMiddleware(thunk,middleware('http://127.0.0.1:3002')))
+//store.dispatch()
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
