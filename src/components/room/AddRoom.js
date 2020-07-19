@@ -21,7 +21,8 @@ class AddRoom extends Component {
 
     handleSubmite=(e)=>{
         e.preventDefault();
-        this.props.createRoom(this.state)
+        if(this.state&&this.state.name&&this.state.room&&this.state.floor&&this.state.sensorid&&this.state.capacity)
+            this.props.createRoom(this.state)
     }
 
     render() {
