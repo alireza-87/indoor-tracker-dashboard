@@ -23,7 +23,7 @@ export const middleware = config => ({ dispatch }) => {
   }));
 
   return next => (action) => {
-    console.log('nextaction',action.type," , ",JSON.stringify(action.payload));
+    console.log('nextaction',action.type);
     switch(action.type){
       case actionType.ADD_ROOM:
         client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))

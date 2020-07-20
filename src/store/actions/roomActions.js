@@ -7,7 +7,7 @@ export const result = data => ({
 
 export const roomList = roomParams => ({
   type: action.ROOM_LIST,
-  rooms: {
+  payload: {
     rooms: roomParams.result
   },
 });

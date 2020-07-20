@@ -1,21 +1,17 @@
 import * as actionType from '../actionType'
 
-const mqttReducer = (state = {}, action) => {
-  console.log('mqttReducer actio  > ',action);
-  console.log('mqttReducer state > ',state);
+const roomReducer = (state = {}, action) => {
+  console.log('roomReducer actio  > ',action);
+  console.log('roomReducer state > ',state);
 
   switch (action.type) {
     case actionType.ROOM_LIST:
       return {
-        ...action.rooms,
-      };
-    case actionType.ADD_ROOM:
-      return {
-        ...action.rooms,
+        ...action.payload,
       };
     default:
       return state;
   }
 };
 
-export default mqttReducer;
+export default roomReducer;
