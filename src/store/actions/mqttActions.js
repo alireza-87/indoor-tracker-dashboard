@@ -16,7 +16,11 @@ export const getRoomList = data => ({
   payload:data
 })
 
-export const getRoomCount = data => ({
-  type:action.ROOM_COUNT,
-  payload:data
+export const getRoomCount = (floors, rooms )=> ({
+  type:action.GET_ROOM_COUNT,
+  payload:{
+    type: 'getRoomCount',
+    floor:floors,
+    room:rooms
+  }
 })

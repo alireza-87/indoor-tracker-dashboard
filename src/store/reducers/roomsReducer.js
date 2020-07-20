@@ -1,5 +1,4 @@
 import * as actionType from '../actionType'
-let globalId=0
 
 const roomReducer = (state = [], action) => {
   console.log('roomReducer actio  > ',action);
@@ -10,7 +9,10 @@ const roomReducer = (state = [], action) => {
       return [
         ...action.payload.rooms,
       ];
+    case actionType.ROOM_COUNT:
+      return state.map(item => item.floor === action.payload.rooms.floor && item.room === action.payload.rooms.room ? {...item,counter:action.payload.rooms.count} : item )
     default:
+      console.log("OPS2: ",action.type)
       return state;
   }
 };

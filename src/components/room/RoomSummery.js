@@ -10,7 +10,7 @@ const RoomSummery = ({room}) => {
                 </span>
                 <h6>Floor : {room.floor}</h6>
                 <h6>Room :  {room.room}</h6>
-                <h6>Current Occupied : {room.occupied}</h6>
+                <h6>Current Occupied : {room.counter}</h6>
                 <h6>Capacity : {room.capacity}</h6>
                 <h6>Is Enable :  {room.isenable}</h6>
             </div>

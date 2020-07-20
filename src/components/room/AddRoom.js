@@ -25,7 +25,6 @@ class AddRoom extends Component {
     }
 
     render() {
-        const { result }=this.props
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">

@@ -9,18 +9,16 @@ const commandReducer = (state = {}, action) => {
       return {
         ...action.rooms,
       };
-      break
     case actionType.GET_ROOM_LIST:
       return {
         ...action.rooms,
       };
-      break
       case actionType.GET_ROOM_COUNT:
         return {
           ...action.payload,
         };
-        break
     default:
+      console.log("OPS: ",action.type)
       return state;
   }
 };

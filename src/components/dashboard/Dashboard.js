@@ -1,7 +1,8 @@
-import React,{ Component,useEffect } from 'react'
+import React,{ Component } from 'react'
 import RoomList from '../room/RoomList'
 import {connect} from 'react-redux'
-import {getRoomList} from '../../store/actions/mqttActions'
+import {getRoomCount,getRoomList} from '../../store/actions/mqttActions'
+let temp=0
 
 class Dashboard extends Component{
     state={
@@ -10,11 +11,15 @@ class Dashboard extends Component{
     componentDidMount() {
         this.props.getRoomList(this.state)
     }
-        
     render(){    
         const { rooms }=this.props
-        console.log("DASHBOARD")
-        {rooms && rooms.map(item => {console.log(item)})}
+        console.log("TEMP > ",temp)
+        if(temp===0){
+            {rooms && rooms.forEach (item => this.props.getRoomCount(item.floor,item.room) )}
+            console.log("TEMP > ",rooms.length)
+            if(rooms.length>0)
+                temp=1
+        }
         return(
             <div className="dashboard container">
                 <div className="row">
@@ -29,7 +34,8 @@ class Dashboard extends Component{
 //dispatcher mapper
 const mapDispatchToProps=(dispatch) =>{
     return({
-        getRoomList : (room) => dispatch(getRoomList(room)) 
+        getRoomList : (room) => dispatch(getRoomList(room)),
+        getRoomCount : (floor,room) => dispatch(getRoomCount(floor,room)) 
     })
 }
 
