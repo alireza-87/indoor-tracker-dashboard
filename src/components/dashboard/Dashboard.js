@@ -7,13 +7,14 @@ class Dashboard extends Component{
     state={
         type:'getRoomList'
         }
-        componentDidMount() {
-            this.props.getRoomList(this.state)
-          }
+    componentDidMount() {
+        this.props.getRoomList(this.state)
+    }
         
     render(){    
-
         const { rooms }=this.props
+        console.log("DASHBOARD")
+        {rooms && rooms.map(item => {console.log(item)})}
         return(
             <div className="dashboard container">
                 <div className="row">
@@ -27,19 +28,15 @@ class Dashboard extends Component{
 }
 //dispatcher mapper
 const mapDispatchToProps=(dispatch) =>{
-    return(
-        {
-            getRoomList : (room) => dispatch(getRoomList(room)) 
-        }
-    )
+    return({
+        getRoomList : (room) => dispatch(getRoomList(room)) 
+    })
 }
 
 const mapStateToProps = (state) =>{
-    return(
-        {
-            rooms:state.room
-        }
-    )
+    return({
+        rooms:state.room
+    })
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)

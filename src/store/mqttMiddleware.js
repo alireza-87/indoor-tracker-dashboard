@@ -1,5 +1,5 @@
 import MQTT from 'mqtt';
-import {roomList,result} from './actions/roomActions'
+import {roomCount,roomList,result} from './actions/roomActions'
 import * as actionType from './actionType'
 export const middleware = config => ({ dispatch }) => { 
   const clientId=Math.floor(Math.random() * 10000) + 1
@@ -13,8 +13,11 @@ export const middleware = config => ({ dispatch }) => {
     console.log(topic)
     const msgObj = JSON.parse(message);
     if (topic === 'dashboard/'+clientId+'/data/roomList') {
-      console.log('get room list',msgObj)
+      console.log('get room list')
       dispatch(roomList(msgObj));
+    }else if (topic === 'dashboard/'+clientId+'/data/roomCount') {
+      console.log('get room count',msgObj)
+      dispatch(roomCount(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/result/success') {
       dispatch(result(msgObj))
     }else if (topic === 'dashboard/'+clientId+'/result/fail') {
@@ -31,7 +34,10 @@ export const middleware = config => ({ dispatch }) => {
         case actionType.GET_ROOM_LIST:
           client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
             break
-          
+            case actionType.GET_ROOM_COUNT:
+              client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
+                break
+    
           default:
             break
     }

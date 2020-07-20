@@ -15,3 +15,8 @@ export const getRoomList = data => ({
   type:action.GET_ROOM_LIST,
   payload:data
 })
+
+export const getRoomCount = data => ({
+  type:action.ROOM_COUNT,
+  payload:data
+})

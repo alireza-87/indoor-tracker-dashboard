@@ -9,8 +9,8 @@ import { Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {middleware} from './store/mqttMiddleware'
 import { composeWithDevTools } from 'redux-devtools-extension';
-
-const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk,middleware('http://127.0.0.1:3002'))))
+import store from './store/store'
+//const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(thunk,middleware('http://127.0.0.1:3002'))))
 //store.dispatch()
 ReactDOM.render(
   <Provider store={store}>

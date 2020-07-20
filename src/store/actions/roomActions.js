@@ -11,3 +11,10 @@ export const roomList = roomParams => ({
     rooms: roomParams.result
   },
 });
+
+export const roomCount = roomParams => ({
+  type: action.ROOM_COUNT,
+  payload: {
+    rooms: roomParams.result
+  },
+});
