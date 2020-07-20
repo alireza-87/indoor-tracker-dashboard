@@ -13,7 +13,7 @@ export const middleware = config => ({ dispatch }) => {
     console.log(topic)
     const msgObj = JSON.parse(message);
     if (topic === 'dashboard/'+clientId+'/data/roomList') {
-      console.log('get room list')
+      console.log('get room list',msgObj)
       dispatch(roomList(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/result/success') {
       dispatch(result(msgObj))

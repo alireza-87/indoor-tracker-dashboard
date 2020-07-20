@@ -6,7 +6,7 @@ const RoomList = ({rooms}) => {
         <div className="room-List section">
             {
                 rooms && rooms.map(room => {
-                    return(<RoomSummery room={room} key={room.id} />)
+                    return(<RoomSummery room={room} key={room._id} />)
                 })
             }
         </div>
