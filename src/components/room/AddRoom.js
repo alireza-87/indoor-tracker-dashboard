@@ -74,7 +74,7 @@ const mapDispatchToProps=(dispatch) =>{
 const mapStateToProps = (state) =>{
     return(
         {
-            result:state.mqtt.result
+            result:state.room.result
         }
     )
 }
