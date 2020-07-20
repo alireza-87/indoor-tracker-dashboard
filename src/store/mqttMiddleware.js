@@ -7,6 +7,7 @@ export const middleware = config => ({ dispatch }) => {
       client.on('connect', function () {
         console.log('connected ..... ')
         client.subscribe('dashboard/'+clientId+'/#')
+        client.subscribe('update/room')
     })
 
   client.on('message', ((topic, message) => {
@@ -16,6 +17,9 @@ export const middleware = config => ({ dispatch }) => {
       console.log('get room list')
       dispatch(roomList(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/data/roomCount') {
+      console.log('get room count',msgObj)
+      dispatch(roomCount(msgObj));
+    }else if (topic === 'update/room') {
       console.log('get room count',msgObj)
       dispatch(roomCount(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/result/success') {
