@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {createRoom} from '../../store/actions/roomActions'
 import {connect} from 'react-redux'
 import {addRoom} from '../../store/actions/mqttActions'
 

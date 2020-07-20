@@ -1,13 +1,13 @@
-import roomReducer from './roomReducer'
 import authReducer from './authReducer'
-import mqttReducer from './mqttReducer'
+import roomsReducer from './roomsReducer'
+import commandReducer from './commandReducer'
 
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-    room:roomReducer,
     auth:authReducer,
-    mqtt:mqttReducer
+    mqtt:roomsReducer,
+    command:commandReducer
 })
 
 export default rootReducer

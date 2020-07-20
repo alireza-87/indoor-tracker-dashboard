@@ -2,6 +2,7 @@ import React,{ Component,useEffect } from 'react'
 import RoomList from '../room/RoomList'
 import {connect} from 'react-redux'
 import {getRoomList} from '../../store/actions/mqttActions'
+
 class Dashboard extends Component{
     state={
         type:'getRoomList'

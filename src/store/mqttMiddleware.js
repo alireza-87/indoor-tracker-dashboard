@@ -1,6 +1,6 @@
 import MQTT from 'mqtt';
-import {roomList,result} from './actions/mqttActions'
-
+import {roomList,result} from './actions/roomActions'
+import * as actionType from './actionType'
 export const middleware = config => ({ dispatch }) => { 
   const clientId=Math.floor(Math.random() * 10000) + 1
   const client = MQTT.connect(config);
@@ -23,12 +23,12 @@ export const middleware = config => ({ dispatch }) => {
   }));
 
   return next => (action) => {
-    console.log('nextaction',JSON.stringify(action.payload));
+    console.log('nextaction',action.type," , ",JSON.stringify(action.payload));
     switch(action.type){
-      case 'ADD_ROOM':
+      case actionType.ADD_ROOM:
         client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
           break
-        case 'GET_ROOM_LIST':
+        case actionType.GET_ROOM_LIST:
           client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
             break
           
