@@ -27,7 +27,7 @@ class Dashboard extends Component{
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12">
-                        <TotalStatus totalCount={rooms.totalCount} totalCurrentOccupide={rooms.totalCurrentOccupide}/>
+                        <TotalStatus totalCount={rooms.totalCount} totalCurrentOccupide={rooms.totalCurrentOccupide[4]}/>
                     </div>
                 </div>
                 <div className="row">
