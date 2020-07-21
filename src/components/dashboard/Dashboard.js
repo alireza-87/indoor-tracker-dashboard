@@ -1,5 +1,8 @@
 import React,{ Component } from 'react'
 import RoomList from '../room/RoomList'
+import TotalStatus from '../monitoring/TotalStatus'
+import ServerDiagram from '../monitoring/ServerDiagram'
+
 import {connect} from 'react-redux'
 import {getRoomCount,getRoomList} from '../../store/actions/mqttActions'
 let temp=0
@@ -22,6 +25,16 @@ class Dashboard extends Component{
         }
         return(
             <div className="dashboard container">
+                <div className="row">
+                    <div className="col s12">
+                        <TotalStatus serverState={rooms}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col s12">
+                        <ServerDiagram serverState={rooms}/>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col">
                         <RoomList rooms={rooms}/>
