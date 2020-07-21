@@ -41,7 +41,10 @@ export const middleware = config => ({ dispatch }) => {
             case actionType.GET_ROOM_COUNT:
               client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
                 break
-    
+                case actionType.ADD_PERSON:
+                  client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
+                    break
+          
           default:
             break
     }

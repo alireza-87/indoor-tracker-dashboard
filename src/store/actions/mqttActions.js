@@ -11,6 +11,11 @@ export const addRoom = data => ({
   payload:data
 })
 
+export const addPerson = data => ({
+  type:action.ADD_PERSON,
+  payload:data
+})
+
 export const getRoomList = data => ({
   type:action.GET_ROOM_LIST,
   payload:data

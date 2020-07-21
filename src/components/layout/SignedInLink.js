@@ -8,7 +8,7 @@ const SignedInLink = () => {
                 <NavLink to='/addroom'>Add Room</NavLink>
             </li>
             <li>
-                <NavLink to='/'>Add Person</NavLink>
+                <NavLink to='/addperson'>Add Person</NavLink>
             </li>
             <li>
                 <NavLink to='/'>Logout</NavLink>

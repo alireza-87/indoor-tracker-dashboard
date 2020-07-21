@@ -9,6 +9,11 @@ const commandReducer = (state = {}, action) => {
       return {
         ...action.rooms,
       };
+    case actionType.ADD_PERSON:
+      return {
+        ...action.person,
+      };
+
     case actionType.GET_ROOM_LIST:
       return {
         ...action.rooms,
