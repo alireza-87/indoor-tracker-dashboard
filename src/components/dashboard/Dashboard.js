@@ -18,26 +18,26 @@ class Dashboard extends Component{
         const { rooms }=this.props
         console.log("TEMP > ",temp)
         if(temp===0){
-            {rooms && rooms.forEach (item => this.props.getRoomCount(item.floor,item.room) )}
+            {rooms.roomList && rooms.roomList.forEach (item => this.props.getRoomCount(item.floor,item.room) )}
             console.log("TEMP > ",rooms.length)
-            if(rooms.length>0)
+            if(rooms.roomList.length>0)
                 temp=1
         }
         return(
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12">
-                        <TotalStatus serverState={rooms}/>
+                        <TotalStatus totalCount={rooms.totalCount} totalCurrentOccupide={rooms.totalCurrentOccupide}/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <ServerDiagram serverState={rooms}/>
+                        <ServerDiagram totalCount={rooms.totalCount} totalCurrentOccupide={rooms.totalCurrentOccupide}/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        <RoomList rooms={rooms}/>
+                        <RoomList rooms={rooms.roomList}/>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ const mapDispatchToProps=(dispatch) =>{
 
 const mapStateToProps = (state) =>{
     return({
-        rooms:state.room.roomList
+        rooms:state.room
     })
 }
 

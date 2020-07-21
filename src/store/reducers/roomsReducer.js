@@ -1,6 +1,6 @@
 import * as actionType from '../actionType'
 
-const roomReducer = (state = {totalCurrentOccupide:0, totalCount:0,roomList : [] }, action) => {
+const roomReducer = (state = {totalCurrentOccupide:[], totalCount:0,roomList : [] }, action) => {
   console.log('roomReducer actio  > ',action);
   console.log('roomReducer state > ',state);
   
@@ -11,10 +11,11 @@ const roomReducer = (state = {totalCurrentOccupide:0, totalCount:0,roomList : []
   }
   
   const totalCurrentOccupide = () =>{
+    let index=0
     let c=0
     if(state.roomList)
       state.roomList.forEach(item => {item.counter? c=c+item.counter:c=c+0})
-    return c
+    return [c]
   }
 
   switch (action.type) {
@@ -22,7 +23,7 @@ const roomReducer = (state = {totalCurrentOccupide:0, totalCount:0,roomList : []
       return {
         ...state, 
         totalCount:totalCount(),
-        totalCurrentOccupide:totalCurrentOccupide(),
+        totalCurrentOccupide:[...totalCurrentOccupide()],
         roomList: [ ...action.payload.rooms]
       };
     case actionType.ROOM_COUNT:
@@ -30,7 +31,7 @@ const roomReducer = (state = {totalCurrentOccupide:0, totalCount:0,roomList : []
       return {
         ...state, 
         totalCount:totalCount(),
-        totalCurrentOccupide:totalCurrentOccupide(),
+        totalCurrentOccupide:[...totalCurrentOccupide()],
 
         roomList: state.roomList.map(item => item.floor === action.payload.rooms.floor && item.room === action.payload.rooms.room ? {...item,counter:action.payload.rooms.count} : {...item} )
       } 
