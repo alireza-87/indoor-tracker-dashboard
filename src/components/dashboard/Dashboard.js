@@ -41,7 +41,7 @@ const mapDispatchToProps=(dispatch) =>{
 
 const mapStateToProps = (state) =>{
     return({
-        rooms:state.room
+        rooms:state.room.roomList
     })
 }
 
