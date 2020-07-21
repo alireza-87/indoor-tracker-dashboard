@@ -10,7 +10,8 @@ class AddPerson extends Component {
         rule:'',
         tell:'',
         email:'',
-        password:''
+        password:'',
+        tokenid:''
     }
 
     handleChange=(e) =>{
@@ -21,7 +22,7 @@ class AddPerson extends Component {
 
     handleSubmite=(e)=>{
         e.preventDefault();
-        if(this.state&&this.state.name&&this.state.surename&&this.state.tell&&this.state.rule&&this.state.email&&this.state.password)
+        if(this.state&&this.state.name&&this.state.surename&&this.state.tell&&this.state.rule&&this.state.email&&this.state.password,this.state.tokenid)
             this.props.addPerson(this.state)
     }
 
@@ -46,6 +47,12 @@ class AddPerson extends Component {
                         <label htmlFor="tell"> Tell </label>
                         <input type="number" id='tell' onChange={this.handleChange}/>
                     </div>
+
+                    <div className="input-field">
+                        <label htmlFor="tokenid"> token Id </label>
+                        <input type="text" id='tokenid' onChange={this.handleChange}/>
+                    </div>
+
                     <div className="input-field">
                         <label htmlFor="email"> Email </label>
                         <input type="email" id='email' onChange={this.handleChange}/>
