@@ -36,3 +36,12 @@ export const getAllUser = ( )=> ({
     type: 'getPersonList',
   }
 })
+
+export const getUserOfRoom = (floors, rooms )=> ({
+  type:action.GET_PERSON_LIST_OF_ROOM,
+  payload:{
+    type: 'getPersonOfRoom',
+    floor:floors,
+    room:rooms
+  }
+})

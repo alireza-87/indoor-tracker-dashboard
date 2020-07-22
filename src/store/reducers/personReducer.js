@@ -2,7 +2,6 @@ import * as actionType from '../actionType'
 
 const INIT_STATE={
     allUser:[],
-    userOfRoom:[]
 }
 
 const PersonReducer = (state = INIT_STATE , action) =>{
@@ -15,7 +14,8 @@ const PersonReducer = (state = INIT_STATE , action) =>{
             }
         case actionType.PERSON_OF_ROOM:
             return{
-                userOfRoom:[...action.payload.persons]
+                ...state,
+                allUser:[...action.payload.persons]
             }
         default:
             return state

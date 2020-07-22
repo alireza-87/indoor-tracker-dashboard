@@ -13,7 +13,7 @@ const RoomSummery = ({room}) => {
                 <h6>Current Occupied : {room.counter}</h6>
                 <h6>Capacity : {room.capacity}</h6>
                 <h6>Is Enable :  {room.isenable}</h6>
-                <NavLink to='/person'>Detail...</NavLink>
+                <NavLink to={`/person/${room.floor}/${room.room}`}>Detail...</NavLink>
             </div>
         </div>
         </div>

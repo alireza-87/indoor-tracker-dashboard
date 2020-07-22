@@ -20,7 +20,8 @@ function App() {
           <Route path='/signup' component={Signedup}/>
           <Route path='/addroom' component={AddRoom}/>
           <Route path='/addperson' component={AddPerson}/>
-          <Route path='/person' component={Persons}/>
+          <Route path='/person' exact component={Persons}/>
+          <Route path='/person/:floor/:room' component={Persons}/>
 
 
         </Switch>
