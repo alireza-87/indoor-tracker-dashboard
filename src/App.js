@@ -7,7 +7,7 @@ import SignedIn from '../src/components/auth/SignedIn'
 import Signedup from '../src/components/auth/Signedup'
 import AddRoom from './components/room/AddRoom'
 import AddPerson from './components/room/AddPerson'
-
+import Persons from './components/persons/Persons'
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +20,8 @@ function App() {
           <Route path='/signup' component={Signedup}/>
           <Route path='/addroom' component={AddRoom}/>
           <Route path='/addperson' component={AddPerson}/>
+          <Route path='/person' component={Persons}/>
+
 
         </Switch>
       </div>

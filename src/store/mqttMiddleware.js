@@ -1,5 +1,7 @@
 import MQTT from 'mqtt';
 import {roomCount,roomList,result} from './actions/roomActions'
+import {users,personOfRoom} from './actions/personsAction'
+
 import * as actionType from './actionType'
 export const middleware = config => ({ dispatch }) => { 
   const clientId=Math.floor(Math.random() * 10000) + 1
@@ -22,6 +24,12 @@ export const middleware = config => ({ dispatch }) => {
     }else if (topic === 'dashboard/'+clientId+'/data'&& msgObj.type==='roomCount') {
       console.log('get room count',msgObj)
       dispatch(roomCount(msgObj));
+    }else if (topic === 'dashboard/'+clientId+'/data'&& msgObj.type==='personList') {
+      console.log('get personList',msgObj)
+      dispatch(users(msgObj));
+    }else if (topic === 'dashboard/'+clientId+'/data'&& msgObj.type==='personOfRoom') {
+      console.log('get of room',msgObj)
+      dispatch(personOfRoom(msgObj));
     }else if (topic === 'update/room') {
       console.log('update room count',msgObj)
       dispatch(roomCount(msgObj));
@@ -47,7 +55,14 @@ export const middleware = config => ({ dispatch }) => {
                 case actionType.ADD_PERSON:
                   client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
                     break
-          
+                    case actionType.GET_PERSON_LIST:
+                      client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
+                        break
+                        case actionType.GET_PERSON_LIST_OF_ROOM:
+                          client.publish('command/'+clientId+'/s',JSON.stringify(action.payload))
+                            break
+    
+    
           default:
             break
     }

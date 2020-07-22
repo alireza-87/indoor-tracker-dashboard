@@ -11,9 +11,11 @@ class Dashboard extends Component{
     state={
         type:'getRoomList'
         }
+        
     componentDidMount() {
         this.props.getRoomList(this.state)
     }
+
     render(){    
         const { rooms }=this.props
         console.log("TEMP > ",temp)

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 const RoomSummery = ({room}) => {
     return(
         <div className="col s12 m6 l4">
@@ -13,6 +13,7 @@ const RoomSummery = ({room}) => {
                 <h6>Current Occupied : {room.counter}</h6>
                 <h6>Capacity : {room.capacity}</h6>
                 <h6>Is Enable :  {room.isenable}</h6>
+                <NavLink to='/person'>Detail...</NavLink>
             </div>
         </div>
         </div>
