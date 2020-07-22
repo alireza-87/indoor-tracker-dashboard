@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {addRoom} from '../../store/actions/mqttActions'
+import * as actionType from '../../store/actionType'
 
 class AddRoom extends Component {
     state={
-        type:'addRoom',
+        type:actionType.ADD_ROOM,
         name:'',
         floor:'',
         room:'',

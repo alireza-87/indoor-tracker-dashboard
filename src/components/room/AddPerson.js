@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {addPerson} from '../../store/actions/mqttActions'
-
+import * as actionType from '../../store/actionType'
 class AddPerson extends Component {
     state={
-        type:'addPerson',
+        type:actionType.ADD_PERSON,
         name:'',
         surename:'',
         rule:'',

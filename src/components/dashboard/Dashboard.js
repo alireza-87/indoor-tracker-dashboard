@@ -8,12 +8,9 @@ import {getRoomCount,getRoomList} from '../../store/actions/mqttActions'
 let temp=0
 
 class Dashboard extends Component{
-    state={
-        type:'getRoomList'
-        }
         
     componentDidMount() {
-        this.props.getRoomList(this.state)
+        this.props.getRoomList()
     }
 
     render(){    
@@ -49,7 +46,7 @@ class Dashboard extends Component{
 //dispatcher mapper
 const mapDispatchToProps=(dispatch) =>{
     return({
-        getRoomList : (room) => dispatch(getRoomList(room)),
+        getRoomList : () => dispatch(getRoomList()),
         getRoomCount : (floor,room) => dispatch(getRoomCount(floor,room)) 
     })
 }
