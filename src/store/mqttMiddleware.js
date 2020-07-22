@@ -11,16 +11,19 @@ export const middleware = config => ({ dispatch }) => {
     })
 
   client.on('message', ((topic, message) => {
-    console.log(topic)
+    console.log(" 9999999999 >",topic)
+
     const msgObj = JSON.parse(message);
-    if (topic === 'dashboard/'+clientId+'/data/roomList') {
+    console.log(" 8888888888 >",msgObj)
+
+    if (topic === 'dashboard/'+clientId+'/data' && msgObj.type==='roomList') {
       console.log('get room list')
       dispatch(roomList(msgObj));
-    }else if (topic === 'dashboard/'+clientId+'/data/roomCount') {
+    }else if (topic === 'dashboard/'+clientId+'/data'&& msgObj.type==='roomCount') {
       console.log('get room count',msgObj)
       dispatch(roomCount(msgObj));
     }else if (topic === 'update/room') {
-      console.log('get room count',msgObj)
+      console.log('update room count',msgObj)
       dispatch(roomCount(msgObj));
     }else if (topic === 'dashboard/'+clientId+'/result/success') {
       dispatch(result(msgObj))
