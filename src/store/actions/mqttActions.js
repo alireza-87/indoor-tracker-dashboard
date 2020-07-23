@@ -6,6 +6,10 @@ export const result = data => ({
 
 })
 
+export const initMqtt = () => ({
+  type:action.INIT_MQTT,
+})
+
 export const addRoom = data => ({
   type:action.ADD_ROOM,
   payload:data

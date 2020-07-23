@@ -14,3 +14,10 @@ export const GET_PERSON_LIST = '/App/GET_PERSON_LIST';
 export const GET_PERSON_LIST_OF_ROOM = '/App/GET_PERSON_LIST_OF_ROOM';
 
 export const RESULT = '/App/RESULT';
+
+export const INIT_MQTT = 'INIT_MQTT'
+
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+
+export const LOGIN_DONE = 'LOGIN'

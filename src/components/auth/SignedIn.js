@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
+import store from '../../store/store'
+import {login} from '../../store/actions/authAction'
+import {connect} from 'react-redux'
 
 class SignedIn extends Component {
     state={
@@ -15,9 +19,15 @@ class SignedIn extends Component {
     handleSubmite=(e)=>{
         e.preventDefault();
         console.log(this.state)
+        this.props.login(this.state)
     }
 
     render() {
+        if(this.props.loginData && this.props.loginData.message === "success"){
+            return (
+            <Redirect to="/" />
+            )
+        }
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
@@ -41,4 +51,16 @@ class SignedIn extends Component {
     }
 }
 
-export default SignedIn
+const mapDispatchToProps=(dispatch) =>{
+    return({
+        login : (state) => dispatch(login(state))
+    })
+}
+
+const mapStateToProps = (state) =>{
+    return({
+        loginData:state.auth.login
+    })
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignedIn)

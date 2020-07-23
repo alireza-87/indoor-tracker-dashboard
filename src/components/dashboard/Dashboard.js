@@ -4,12 +4,13 @@ import TotalStatus from '../monitoring/TotalStatus'
 import ServerDiagram from '../monitoring/ServerDiagram'
 
 import {connect} from 'react-redux'
-import {getRoomCount,getRoomList} from '../../store/actions/mqttActions'
+import {getRoomCount,getRoomList, initMqtt} from '../../store/actions/mqttActions'
 let temp=0
 
 class Dashboard extends Component{
         
     componentDidMount() {
+        this.props.initMqtt()
         this.props.getRoomList()
     }
 
@@ -47,7 +48,8 @@ class Dashboard extends Component{
 const mapDispatchToProps=(dispatch) =>{
     return({
         getRoomList : () => dispatch(getRoomList()),
-        getRoomCount : (floor,room) => dispatch(getRoomCount(floor,room)) 
+        getRoomCount : (floor,room) => dispatch(getRoomCount(floor,room)),
+        initMqtt : () => dispatch(initMqtt())
     })
 }
 
