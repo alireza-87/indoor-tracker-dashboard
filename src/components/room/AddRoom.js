@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {addRoom} from '../../store/actions/mqttActions'
 import * as actionType from '../../store/actionType'
+import {Redirect} from 'react-router-dom'
 
 class AddRoom extends Component {
     state={
@@ -26,6 +27,11 @@ class AddRoom extends Component {
     }
 
     render() {
+        if(!this.props.loginData || this.props.loginData.message !== "success"){
+            return (
+            <Redirect to="/signin" />
+            )
+        }
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
@@ -74,7 +80,9 @@ const mapDispatchToProps=(dispatch) =>{
 const mapStateToProps = (state) =>{
     return(
         {
-            result:state.room.result
+            result:state.room.result,
+            loginData:state.auth.login
+
         }
     )
 }

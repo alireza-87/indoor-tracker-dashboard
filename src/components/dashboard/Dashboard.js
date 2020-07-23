@@ -2,6 +2,7 @@ import React,{ Component } from 'react'
 import RoomList from '../room/RoomList'
 import TotalStatus from '../monitoring/TotalStatus'
 import ServerDiagram from '../monitoring/ServerDiagram'
+import {Redirect} from 'react-router-dom'
 
 import {connect} from 'react-redux'
 import {getRoomCount,getRoomList, initMqtt} from '../../store/actions/mqttActions'
@@ -10,11 +11,18 @@ let temp=0
 class Dashboard extends Component{
         
     componentDidMount() {
-        this.props.initMqtt()
-        this.props.getRoomList()
+        if(!this.props.loginData || this.props.loginData.message !== "success"){
+            this.props.initMqtt()
+            this.props.getRoomList()
+        }
     }
 
     render(){    
+        if(!this.props.loginData || this.props.loginData.message !== "success"){
+            return (
+            <Redirect to="/signin" />
+            )
+        }
         const { rooms }=this.props
         console.log("TEMP > ",temp)
         if(temp===0){
@@ -55,7 +63,8 @@ const mapDispatchToProps=(dispatch) =>{
 
 const mapStateToProps = (state) =>{
     return({
-        rooms:state.room
+        rooms:state.room,
+        loginData:state.auth.login
     })
 }
 
