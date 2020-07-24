@@ -9,13 +9,13 @@ const personSummery = ({person}) => {
 
             <div className="row card-content">
                 <div className="col circle"><i class="material-icons img-circle">perm_identity</i></div>
-                <div className="col "><h5 className="state-data">{person.name}</h5></div>
+                <div className="col "><h5 className="state-data">{person.user?person.user.name:person.name}</h5></div>
             </div>
 
             <div className="card-content grey-text text-darker-3">
-                <h6 className="card-person-content">Email: {person.email}</h6>
-                <h6>Rule: {person.rule}</h6>
-                <h6>Tell: {person.tell?person.tell:"No Tell"}</h6>
+                <h6 className="card-person-content">Email: {person.user?person.user.email:person.email}</h6>
+                <h6>Rule: {person.user?person.user.rule:person.rule}</h6>
+                <h6>Tell: {person.user?person.user.tell:person.tell}</h6>
             </div>
             <div className="div-seprator"></div>
             <div className="card-action">

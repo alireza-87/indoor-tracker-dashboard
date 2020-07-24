@@ -14,11 +14,11 @@ const TotalStatus = ({totalCount,totalCurrentOccupide}) =>{
                         <div className="col s6">
                             <div className="row state-label ">
                                 <div className="col state-empty-col"></div>
-                                <div className="col"><h7 className='grey-text' >Total Attendees</h7></div>
+                                <div className="col"><h6 className='grey-text' >Total Attendees</h6></div>
                             </div>
 
                             <div className="row">
-                                <div className="col circle"><i class="material-icons img-circle">face</i></div>
+                                <div className="col circle"><i className="material-icons img-circle">face</i></div>
                                 <div className="col "><h5 className="state-data">{totalCurrentOccupide}</h5></div>
                             </div>
                         
@@ -27,11 +27,11 @@ const TotalStatus = ({totalCount,totalCurrentOccupide}) =>{
                         <div className="col s6">
                             <div className="row state-label ">
                                 <div className="col state-empty-col"></div>
-                                <div className="col"><h7 className='grey-text' >total Capacity</h7></div>
+                                <div className="col"><h6 className='grey-text' >total Capacity</h6></div>
                             </div>
 
                             <div className="row">
-                                <div className="col circle-pink"><i class="material-icons img-circle">people_outline</i></div>
+                                <div className="col circle-pink"><i className="material-icons img-circle">people_outline</i></div>
                                 <div className="col "><h5 className="state-data">{totalCount}</h5></div>
                             </div>
                         

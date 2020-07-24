@@ -28,7 +28,7 @@ class Persons extends Component {
         return (
             <div className='persons container'>
                 <div className="row">
-                    <div className="col">
+                    <div className="col s12">
                         <PersonList persons={persons}/>
                     </div>
                 </div>
