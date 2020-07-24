@@ -9,8 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: sans-serif;
 }
 
 form{
@@ -41,6 +40,11 @@ form{
 .card-title-content{
   font-weight: bold;
 }
+
+.card-footer{
+  padding: 8px;
+}
+
 
 .circle {
   width: 50px;
@@ -84,6 +88,10 @@ form{
 
 form button , form h5 {
   margin:20px,0;
+}
+
+.rv-xy-plot {
+  font-family: sans-serif;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
