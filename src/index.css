@@ -14,9 +14,73 @@ code {
 }
 
 form{
-  padding: 20px;
-  margin-top: 60px;
+  padding: 20px;  
 }
+
+.dashboard{
+  margin-top: 30px;
+}
+
+.form-login{
+  max-width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.div-seprator{
+  min-height: 2px;
+  background-color:#eceff1 ;
+}
+
+.card-title{
+  padding: 8px;
+}
+
+.card-title-content{
+  font-weight: bold;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background: #f9a825 ;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle-pink {
+  width: 50px;
+  height: 50px;
+  background: #e91e63 ;
+  border-radius: 50%;
+  position: relative;
+}
+
+.img-circle{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+
+} 
+
+.state-empty-col {
+  width: 50px;
+}
+
+.state-data{
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.state-label{
+  margin:0px;
+  vertical-align: bottom;
+}
+
 
 form button , form h5 {
   margin:20px,0;

@@ -29,7 +29,7 @@ class SignedIn extends Component {
             )
         }
         return (
-            <div className='container'>
+            <div className='form-login container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
                     <h5 className="grey-text grey-darken4">Sign In</h5>
                     <div className="input-field">

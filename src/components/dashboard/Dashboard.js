@@ -44,7 +44,7 @@ class Dashboard extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col">
+                    <div className="col s12">
                         <RoomList rooms={rooms.roomList}/>
                     </div>
                 </div>
