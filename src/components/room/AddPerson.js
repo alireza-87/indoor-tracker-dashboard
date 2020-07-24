@@ -36,7 +36,7 @@ class AddPerson extends Component {
         }
 
         return (
-            <div className='container'>
+            <div className='form-adduser container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
                     <h5 className="grey-text grey-darken4">Add Person</h5>
                     <div className="input-field">

@@ -28,6 +28,26 @@ form{
   transform: translate(-50%, -50%);
 }
 
+.form-adduser{
+  max-width: 60%;
+  position: unset;
+  top:50%;
+  left:50%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+.form-addroom{
+  max-width: 60%;
+  position: unset;
+  top:50%;
+  left:50%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
 .div-seprator{
   min-height: 2px;
   background-color:#eceff1 ;
