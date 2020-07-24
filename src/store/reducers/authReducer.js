@@ -10,6 +10,10 @@ const authReducer = (state = initState , action) =>{
                 ...state,
                 login:{...action.login}
             }
+        case actionType.LOGOUT:
+            state = initState;
+            return state
+
         default:
             return state
 

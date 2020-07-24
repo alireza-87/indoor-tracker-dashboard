@@ -20,3 +20,7 @@ export const login = (data) => {
     };
 };
 
+export const logOut = () => ({
+    type:actionType.LOGOUT,
+  })
+  
