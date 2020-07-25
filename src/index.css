@@ -148,6 +148,37 @@ form button , form h5 {
 
 }
 
+.activity-log{
+  overflow-y: scroll;
+  height: 300px;
+  width: 300px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+.activity-log::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-log-content
+{
+  height:224px;
+  overflow:auto;
+  background:#fff;
+}
+
+.activity-log-content-data
+{
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+
+}
+
+
+
+
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),

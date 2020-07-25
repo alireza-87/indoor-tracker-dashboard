@@ -14,3 +14,9 @@ export const personOfRoom = personParams => ({
     },
 });
   
+export const personActivity = personParams => ({
+  type: action.PERSON_OF_ACTIVITY,
+  payload: {
+    persons: personParams.result
+  },
+});

@@ -1,6 +1,6 @@
 import MQTT from 'mqtt';
 import {roomCount,roomList,result} from './actions/roomActions'
-import {users,personOfRoom} from './actions/personsAction'
+import {users,personOfRoom,personActivity} from './actions/personsAction'
 
 import * as actionType from './actionType'
 export const middleware = config => ({ dispatch }) => { 
@@ -13,7 +13,7 @@ export const middleware = config => ({ dispatch }) => {
         client.on('connect', function () {
           console.log('connected ..... ')
           client.subscribe('dashboard/'+clientId+'/#')
-          client.subscribe('update/room')
+          client.subscribe('update/#')
       })
   
     client.on('message', ((topic, message) => {
@@ -37,6 +37,9 @@ export const middleware = config => ({ dispatch }) => {
       }else if (topic === 'update/room') {
         console.log('update room count',msgObj)
         dispatch(roomCount(msgObj));
+      }else if (topic === 'update/useractivity') {
+        console.log('get useractivity',msgObj)
+        dispatch(personActivity(msgObj));
       }else if (topic === 'dashboard/'+clientId+'/result/success') {
         dispatch(result(msgObj))
       }else if (topic === 'dashboard/'+clientId+'/result/fail') {

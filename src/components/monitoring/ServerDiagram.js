@@ -1,7 +1,7 @@
 import React from 'react'
 import {XYPlot, LineSeries,VerticalGridLines,HorizontalGridLines,XAxis,YAxis,RadialChart} from 'react-vis';
 import "react-vis/dist/style.css";
-
+import ActivityMonitoring from '../logsmonitoring/ActivityMonitoring'
 const ServerDiagram = ({totalCount,totalCurrentOccupide}) =>{
     let index=3
     let data = [{x:0,y:0},
@@ -18,6 +18,8 @@ const ServerDiagram = ({totalCount,totalCurrentOccupide}) =>{
                 </div>
                 <div className="div-seprator"></div>
                 <div className="grey-text text-darker-3">
+                    <div className="row">
+                        <div className="col">
                     <span className="card-title">
                     <XYPlot height={300} width= {400}>
                     <XAxis />
@@ -27,6 +29,11 @@ const ServerDiagram = ({totalCount,totalCurrentOccupide}) =>{
                     <LineSeries color="#f9a825"  style={{strokeWidth: 3}} height={300} width={300} data={[...totalCurrentOccupide.map(item => { return {x: index++, y: item} })]} />
                     </XYPlot>
                     </span>
+                    </div>
+                    <div className="col">
+                        <ActivityMonitoring className="activity-log"/>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
