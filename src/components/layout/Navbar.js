@@ -22,7 +22,7 @@ const Navbar =(props) => {
                 {link}
             </div>
 
-            <a onClick={handleClick} href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a onClick={handleClick} href="#" data-target="mobile-demo" className="sidenav-trigger"><i class="material-icons">menu</i></a>
         </nav>
     )
 }

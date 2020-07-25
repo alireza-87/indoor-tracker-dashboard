@@ -18,12 +18,6 @@ function App() {
       <div className="App">
         <Navbar/>
 
-        <ul id="slide-out" class="sidenav">
-        <li><a href="#item1">Item 1</a></li>
-        <li><a href="#item2">Item 2</a></li>
-        <li><a href="#item3">Item 3</a></li>
-        </ul>
-
         <Switch>
           <Route path='/' exact component={Dashboard}/>
           <Route path='/room/:floor/:room' component={RoomDetail}/>
