@@ -11,7 +11,7 @@ let temp=0
 class Dashboard extends Component{
         
     componentDidMount() {
-        if(!this.props.loginData || this.props.loginData.message !== "success"){
+        if(this.props.loginData && this.props.loginData.message === "success"){
             this.props.initMqtt()
             this.props.getRoomList()
         }
