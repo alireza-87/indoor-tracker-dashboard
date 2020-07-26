@@ -4,6 +4,7 @@ import {addPerson} from '../../store/actions/mqttActions'
 import * as actionType from '../../store/actionType'
 import {Redirect} from 'react-router-dom'
 import M from 'materialize-css';
+import {clearResult} from '../../store/actions/resultAction'
 
 class AddPerson extends Component {
     state={
@@ -41,8 +42,10 @@ class AddPerson extends Component {
         const {command} = this.props
         if(result && result==="done"){
             M.toast({html: 'User added'})
+            this.props.clearResult()
         }else if(result && result==="fail"){
             M.toast({html: 'An error Occure'})
+            this.props.clearResult()
         }
         console.log("command",command)
 
@@ -97,7 +100,8 @@ class AddPerson extends Component {
 const mapDispatchToProps=(dispatch) =>{
     return(
         {
-            addPerson : (person) => dispatch(addPerson(person)) 
+            addPerson : (person) => dispatch(addPerson(person)) ,
+            clearResult : () => dispatch(clearResult())
         }
     )
 }

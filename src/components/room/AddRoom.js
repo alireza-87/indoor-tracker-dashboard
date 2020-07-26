@@ -1,6 +1,7 @@
 import React, { Component,useState } from 'react'
 import {connect} from 'react-redux'
 import {addRoom, result} from '../../store/actions/mqttActions'
+import {clearResult} from '../../store/actions/resultAction'
 import * as actionType from '../../store/actionType'
 import {Redirect} from 'react-router-dom'
 import Loading from '../layout/Loading'
@@ -41,8 +42,10 @@ class AddRoom extends Component {
         const {command} = this.props
         if(result && result==="done"){
             M.toast({html: 'Room added'})
+            this.props.clearResult()
         }else if(result && result==="fail"){
             M.toast({html: 'An error Occure'})
+            this.props.clearResult()
         }
         console.log("command",command)
         return (
@@ -86,7 +89,8 @@ class AddRoom extends Component {
 const mapDispatchToProps=(dispatch) =>{
     return(
         {
-            createRoom : (room) => dispatch(addRoom(room)) 
+            createRoom : (room) => dispatch(addRoom(room)),
+            clearResult : () => dispatch(clearResult())
         }
     )
 }
