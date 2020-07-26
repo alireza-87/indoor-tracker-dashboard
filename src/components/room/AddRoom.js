@@ -1,8 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import {connect} from 'react-redux'
-import {addRoom} from '../../store/actions/mqttActions'
+import {addRoom, result} from '../../store/actions/mqttActions'
 import * as actionType from '../../store/actionType'
 import {Redirect} from 'react-router-dom'
+import Loading from '../layout/Loading'
+import M from 'materialize-css';
+
 
 class AddRoom extends Component {
     state={
@@ -22,8 +25,10 @@ class AddRoom extends Component {
 
     handleSubmite=(e)=>{
         e.preventDefault();
-        if(this.state&&this.state.name&&this.state.room&&this.state.floor&&this.state.sensorid&&this.state.capacity)
+        if(this.state&&this.state.name&&this.state.room&&this.state.floor&&this.state.sensorid&&this.state.capacity){
             this.props.createRoom(this.state)
+            e.target.reset();
+        }
     }
 
     render() {
@@ -32,6 +37,14 @@ class AddRoom extends Component {
             <Redirect to="/signin" />
             )
         }
+        const {result} = this.props
+        const {command} = this.props
+        if(result && result==="done"){
+            M.toast({html: 'Room added'})
+        }else if(result && result==="fail"){
+            M.toast({html: 'An error Occure'})
+        }
+        console.log("command",command)
         return (
             <div className='form-addroom container'>
                 <form onSubmit={this.handleSubmite} className="white z-depth-2">
@@ -57,11 +70,12 @@ class AddRoom extends Component {
                         <input type="text" id='sensorid' onChange={this.handleChange}/>
                     </div>
 
-
-                    <div className="input-field">
-                        <button className="btn orange accent-4 z-depth-1">
-                            Add
-                        </button>
+                    <div className="row">
+                        <div className=" col input-field">
+                            <button className="btn orange accent-4 z-depth-1">
+                                Add
+                            </button>            
+                        </div>
                     </div>
                 </form>
             </div>
@@ -80,9 +94,10 @@ const mapDispatchToProps=(dispatch) =>{
 const mapStateToProps = (state) =>{
     return(
         {
-            result:state.room.result,
-            loginData:state.auth.login
-
+            result:state.result.result,
+            loginData:state.auth.login,
+            command:state.command
+            
         }
     )
 }

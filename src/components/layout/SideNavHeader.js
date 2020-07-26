@@ -3,15 +3,13 @@ import {connect} from 'react-redux'
 
 const SideNavHeader = (props) => {
     return(
-        <li >
-            <div className="sidenav-header">
+        <div className="sidenav-header">
                 <div className="sidenav-header-lable">
-                    <div className="circle"></div>
+                    <div className="circle-orange"></div>
                     <h6 >{props.loginData.result.name}</h6>
                     <h6 >{props.loginData.result.email}</h6>
                 </div>
             </div>
-        </li>
     )
 }
 
