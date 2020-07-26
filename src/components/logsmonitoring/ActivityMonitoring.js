@@ -23,7 +23,7 @@ export class ActivityMonitoring extends Component {
 const mapStateToProps = (state) =>{
     return(
         {
-            activityLog:state.users.activityLog,
+            activityLog:state.activity.activityLog,
         }
     )
 }

@@ -1,7 +1,7 @@
 import MQTT from 'mqtt';
 import {roomCount,roomList,result} from './actions/roomActions'
-import {users,personOfRoom,personActivity} from './actions/personsAction'
-
+import {users,personOfRoom} from './actions/personsAction'
+import {personActivity,alarmRoomOver} from './actions/activityAction'
 import * as actionType from './actionType'
 export const middleware = config => ({ dispatch }) => { 
   
@@ -14,6 +14,7 @@ export const middleware = config => ({ dispatch }) => {
           console.log('connected ..... ')
           client.subscribe('dashboard/'+clientId+'/#')
           client.subscribe('update/#')
+          client.subscribe('alarm/#')
       })
   
     client.on('message', ((topic, message) => {
@@ -40,6 +41,9 @@ export const middleware = config => ({ dispatch }) => {
       }else if (topic === 'update/useractivity') {
         console.log('get useractivity',msgObj)
         dispatch(personActivity(msgObj));
+      }else if (topic === 'alarm/room') {
+        console.log('get alarm',msgObj)
+        dispatch(alarmRoomOver(msgObj));
       }else if (topic === 'dashboard/'+clientId+'/result/success') {
         dispatch(result(msgObj))
       }else if (topic === 'dashboard/'+clientId+'/result/fail') {

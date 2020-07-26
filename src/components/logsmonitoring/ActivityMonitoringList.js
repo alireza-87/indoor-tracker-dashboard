@@ -14,7 +14,7 @@ export class ActivityMonitoringList extends Component {
             <div className="activity-log section">
                 {
                 activitylog && activitylog.map(activitylog => {
-                    return(<ActivityMonitoringSummery activitylog={activitylog} key={activitylog.user._id} />)
+                    return(<ActivityMonitoringSummery activitylog={activitylog} />)
                 })
                 }
             </div>

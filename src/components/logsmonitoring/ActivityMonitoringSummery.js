@@ -7,12 +7,19 @@ export class ActivityMonitoringSummery extends Component {
 
     render() {
         const {activitylog}=this.props
-        return (
-            <div >
-                <p > {activitylog.user.name} {activitylog.action === "entertoroom"?" Enter to ":" Exit from "}floor {activitylog.floor} room {activitylog.room}</p>
-               
-            </div>
-        )
+        if(activitylog.user){
+            return (
+                <div >
+                    <p > {activitylog.user.name} {activitylog.action === "entertoroom"?" Enter to ":" Exit from "}floor {activitylog.floor} room {activitylog.room}</p>               
+                </div>
+            )
+        }else{
+            return (
+                <div >
+                    <p > {activitylog.type === "roomoverload"?" Room over :  ":""} floor : {activitylog.floor} room: {activitylog.room}</p>               
+                </div>
+            )
+        }
     }
 }
 

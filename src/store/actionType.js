@@ -23,3 +23,5 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 
 export const LOGIN_DONE = 'LOGIN'
+
+export const ALARM_ROOM_OVER = '/App/ALARM_ROOM_OVER'

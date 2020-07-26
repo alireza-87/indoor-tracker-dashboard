@@ -2,7 +2,6 @@ import * as actionType from '../actionType'
 
 const INIT_STATE={
     allUser:[],
-    activityLog:[]
 }
 
 const PersonReducer = (state = INIT_STATE , action) =>{
@@ -18,11 +17,7 @@ const PersonReducer = (state = INIT_STATE , action) =>{
                 ...state,
                 allUser:[...action.payload.persons]
             }
-        case actionType.PERSON_OF_ACTIVITY:
-            return{
-                ...state,
-                activityLog:[...state.activityLog,...action.payload.persons]
-            }
+       
     
         default:
             return state
