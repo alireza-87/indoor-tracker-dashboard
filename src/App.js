@@ -8,11 +8,16 @@ import Signedup from '../src/components/auth/Signedup'
 import AddRoom from './components/room/AddRoom'
 import AddPerson from './components/room/AddPerson'
 import Persons from './components/persons/Persons'
+import M from 'materialize-css';
+import options from 'materialize-css';
+
 function App() {
+
   return (
     <BrowserRouter>
       <div className="App">
         <Navbar/>
+
         <Switch>
           <Route path='/' exact component={Dashboard}/>
           <Route path='/room/:floor/:room' component={RoomDetail}/>

@@ -5,7 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider} from 'react-redux'
 import initStore from './store/store'
+import M from 'materialize-css';
+import options from 'materialize-css';
+
 const {store}=initStore()
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {addPerson} from '../../store/actions/mqttActions'
 import * as actionType from '../../store/actionType'
 import {Redirect} from 'react-router-dom'
+import M from 'materialize-css';
 
 class AddPerson extends Component {
     state={
@@ -24,8 +25,10 @@ class AddPerson extends Component {
 
     handleSubmite=(e)=>{
         e.preventDefault();
-        if(this.state&&this.state.name&&this.state.surename&&this.state.tell&&this.state.rule&&this.state.email&&this.state.password,this.state.tokenid)
-            this.props.addPerson(this.state)
+        if(this.state&&this.state.name&&this.state.surename&&this.state.tell&&this.state.rule&&this.state.email&&this.state.password,this.state.tokenid){
+                this.props.addPerson(this.state)
+                e.target.reset();
+        }
     }
 
     render() {
@@ -34,6 +37,14 @@ class AddPerson extends Component {
             <Redirect to="/signin" />
             )
         }
+        const {result} = this.props
+        const {command} = this.props
+        if(result && result==="done"){
+            M.toast({html: 'User added'})
+        }else if(result && result==="fail"){
+            M.toast({html: 'An error Occure'})
+        }
+        console.log("command",command)
 
         return (
             <div className='form-adduser container'>
@@ -94,7 +105,7 @@ const mapDispatchToProps=(dispatch) =>{
 const mapStateToProps = (state) =>{
     return(
         {
-            result:state.room.result,
+            result:state.result.result,
             loginData:state.auth.login
 
         }

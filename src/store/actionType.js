@@ -9,6 +9,7 @@ export const GET_ROOM_COUNT = '/App/GET_ROOM_COUNT';
 
 export const PERSON_LIST = '/App/PERSON_LIST'
 export const PERSON_OF_ROOM = '/App/PERSON_OF_ROOM'
+export const PERSON_OF_ACTIVITY = '/App/PERSON_OF_ACTIVITY'
 
 export const GET_PERSON_LIST = '/App/GET_PERSON_LIST';
 export const GET_PERSON_LIST_OF_ROOM = '/App/GET_PERSON_LIST_OF_ROOM';

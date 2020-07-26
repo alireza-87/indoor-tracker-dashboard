@@ -69,8 +69,8 @@ form{
 
 .card-person-content{
   text-overflow: ellipsis;
-overflow: hidden;
-white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 
 }
 
@@ -79,7 +79,7 @@ white-space: nowrap;
 
 }
 
-.circle {
+.circle-orange {
   width: 50px;
   height: 50px;
   background: #f9a825 ;
@@ -126,6 +126,58 @@ form button , form h5 {
 .rv-xy-plot {
   font-family: sans-serif;
 }
+
+.sidenav-header{
+  background-color: #263238 ;
+  padding: 10px;
+  margin-top: 0px;
+  min-height: 200px;
+  position: relative;
+}
+
+.sidenav-header-lable{
+  background-color: #263238 ;
+  padding-top: 10px;
+  margin: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+.activity-log{
+  overflow-y: scroll;
+  height: 300px;
+  width: 300px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+.activity-log::-webkit-scrollbar {
+  display: none;
+}
+
+.activity-log-content
+{
+  height:224px;
+  overflow:auto;
+  background:#fff;
+}
+
+.activity-log-content-data
+{
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+
+}
+
+
+
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),

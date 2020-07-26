@@ -10,7 +10,7 @@ const initStore = () =>{
     const persistConfig = {
         key: 'rootsotrage',
         storage,
-        blacklist: ['room',"command","users"]
+        blacklist: ['room',"command","users","result"]
       }
     const persistedReducer = persistReducer(persistConfig, rootReducer )
     const middlewarea= composeWithDevTools(applyMiddleware(thunk,middleware('http://127.0.0.1:3002')));

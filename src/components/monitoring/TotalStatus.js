@@ -18,7 +18,7 @@ const TotalStatus = ({totalCount,totalCurrentOccupide}) =>{
                             </div>
 
                             <div className="row">
-                                <div className="col circle"><i className="material-icons img-circle">face</i></div>
+                                <div className="col circle-orange"><i className="material-icons img-circle">face</i></div>
                                 <div className="col "><h5 className="state-data">{totalCurrentOccupide}</h5></div>
                             </div>
                         
