@@ -8,10 +8,8 @@ export class ActivityMonitoringSummery extends Component {
   render() {
     const { activitylog } = this.props;
     if (activitylog.user) {
-      console.log("RRRRR ", activitylog.time);
       let a = new Date(activitylog.time);
       var hours = a.getHours();
-      console.log("RRRRR ", hours);
       let current_datetime = new Date(activitylog.time);
       let formatted =
         current_datetime.getFullYear() +
