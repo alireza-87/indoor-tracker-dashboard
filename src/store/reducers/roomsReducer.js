@@ -25,7 +25,7 @@ const roomReducer = (
       });
     return [c];
   };
-
+  console.log(action);
   switch (action.type) {
     case actionType.ROOM_LIST:
       return {
